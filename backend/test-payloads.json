@@ -1,0 +1,56 @@
+{
+  "booking_withdiscount_suitorguy": {
+    "brand": "suitorguy",
+    "event_type": "booking",
+    "template_type": "withdiscount",
+    "customer_name": "John Doe",
+    "customer_phone": "919876543210",
+    "booking_number": "BK001",
+    "total_amount": "5000",
+    "discount_amount": "500",
+    "payable_amount": "4500",
+    "advance_paid": "2000",
+    "balance_due": "2500"
+  },
+  "booking_nodisc_suitorguy": {
+    "brand": "suitorguy",
+    "event_type": "booking",
+    "template_type": "nodisc",
+    "customer_name": "Jane Smith",
+    "customer_phone": "919876543211",
+    "booking_number": "BK002",
+    "total_amount": "5000",
+    "payable_amount": "5000",
+    "advance_paid": "2000",
+    "balance_due": "3000"
+  },
+  "rentout_withdiscount_zorucci": {
+    "brand": "zorucci",
+    "event_type": "rentout",
+    "template_type": "withdiscount",
+    "customer_name": "Mike Johnson",
+    "customer_phone": "919876543212",
+    "booking_number": "RO001",
+    "total_amount": "8000",
+    "discount_amount": "800",
+    "invoice_amount": "7200",
+    "advance_paid": "3000",
+    "balance_due": "4200",
+    "security_deposit": "1000",
+    "subtotal": "8200"
+  },
+  "rentout_nodisc_zorucci": {
+    "brand": "zorucci",
+    "event_type": "rentout",
+    "template_type": "nodisc",
+    "customer_name": "Sarah Williams",
+    "customer_phone": "919876543213",
+    "booking_number": "RO002",
+    "total_amount": "8000",
+    "invoice_amount": "8000",
+    "advance_paid": "3000",
+    "balance_due": "5000",
+    "security_amount": "1000",
+    "subtotal": "9000"
+  }
+}
