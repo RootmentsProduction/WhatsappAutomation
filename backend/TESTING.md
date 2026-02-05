@@ -41,6 +41,45 @@ node test-api.js
 
 This will run all 4 test cases automatically.
 
+### Method 4: Testing with Real Template Messages (Recommended for Real Testing)
+
+**Option A: Interactive Test Script**
+
+```bash
+node test-real-template.js
+```
+
+This interactive script will:
+- Show all available templates
+- Prompt you to select a template (1-4)
+- Ask for your real phone number
+- Ask for customer name (optional)
+- Send the message and show results
+
+**Option B: Quick Command Line Test**
+
+```bash
+# Test with your phone number
+node test-simple.js <your_phone_number> [template_number]
+
+# Examples:
+node test-simple.js 919876543210 1    # SuitorGuy Booking with Discount
+node test-simple.js 919876543210 2    # SuitorGuy Booking without Discount
+node test-simple.js 919876543210 3    # Zorucci Rent-out with Discount
+node test-simple.js 919876543210 4    # Zorucci Rent-out without Discount
+```
+
+**Available Template Numbers:**
+- `1` = SuitorGuy Booking with Discount
+- `2` = SuitorGuy Booking without Discount
+- `3` = Zorucci Rent-out with Discount
+- `4` = Zorucci Rent-out without Discount
+
+**Phone Number Format:**
+- Use country code + number (e.g., `919876543210` for India)
+- No `+` sign, just numbers
+- Example: `919876543210` (India), `14155551234` (US)
+
 ## Test Checklist
 
 ### SuitorGuy Tests
@@ -96,7 +135,7 @@ For each test:
 ### Issue: "Message already sent"
 **Solution:** This is duplicate prevention working. Change booking_number to test again
 
-## Testing with Real Numbers
+## Testing with Real Template Messages
 
 **IMPORTANT:** Always test with real WhatsApp numbers to verify:
 - Message delivery
@@ -104,7 +143,43 @@ For each test:
 - Variable substitution
 - Brand identification
 
-Use your own number or test numbers for initial testing.
+### Quick Start for Real Template Testing
+
+1. **Start your server:**
+   ```bash
+   npm run dev
+   ```
+
+2. **Run the interactive test:**
+   ```bash
+   node test-real-template.js
+   ```
+
+3. **Or use the quick command:**
+   ```bash
+   node test-simple.js 919876543210 1
+   ```
+   (Replace `919876543210` with your real WhatsApp number)
+
+4. **Check your WhatsApp** - You should receive the template message!
+
+### What Gets Tested
+
+When you use the real template test scripts:
+- ✅ Real WhatsApp API call is made
+- ✅ Template message is sent to your phone
+- ✅ All variables are populated correctly
+- ✅ Brand information is displayed
+- ✅ Message ID is returned
+- ✅ Database logging (if MongoDB connected)
+
+### Tips for Real Testing
+
+- **Use your own number first** to verify everything works
+- **Test all 4 templates** to ensure all scenarios work
+- **Check the message formatting** on your phone
+- **Verify all variables** are showing correctly
+- **Test with different brands** (SuitorGuy and Zorucci)
 
 ## Production Testing
 

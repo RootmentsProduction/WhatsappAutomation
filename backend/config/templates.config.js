@@ -15,16 +15,18 @@ module.exports = {
       ]
     },
     nodisc: {
-      name: 'booking_summary_nodisc',
+      name: 'bookingsummary',
       variables: [
         'customer_name',
         'booking_number',
         'total_amount',
+        'discount_amount',
         'payable_amount',
         'advance_paid',
         'balance_due',
         'brand_name',
-        'brand_contact'
+        'brand_contact',
+        'brand_contact'  // If template needs 10, might be duplicate or another field
       ]
     }
   },
