@@ -119,10 +119,10 @@ async function testWithBookingAPI(bookingNumber = null, phoneNumber = null) {
     console.log(`   Customer Phone: ${whatsappPayload.customer_phone}`);
     
     // Step 3: Send WhatsApp message
-    const result = await sendWhatsAppMessage(whatsappPayload);
+    const sendResult = await sendWhatsAppMessage(whatsappPayload);
     
     console.log('\n✅ SUCCESS! WhatsApp message sent!');
-    console.log('\nResponse:', JSON.stringify(result, null, 2));
+    console.log('\nResponse:', JSON.stringify(sendResult, null, 2));
     console.log('\n📱 Check WhatsApp for the message!');
     
   } catch (error) {
