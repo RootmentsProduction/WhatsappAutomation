@@ -30,6 +30,22 @@ npm install
 npm run dev
 ```
 
+5. **Access Swagger Documentation:**
+   - Open: `http://localhost:5000/api-docs`
+   - Interactive API documentation with testing capabilities
+   - Export OpenAPI spec: `http://localhost:5000/api-docs/swagger.json`
+
+## 📚 API Documentation
+
+**Swagger UI:** `http://localhost:5000/api-docs`
+
+- Interactive API documentation
+- Test endpoints directly from browser
+- View request/response examples
+- Export OpenAPI specification
+
+See [SWAGGER-DOCUMENTATION.md](./SWAGGER-DOCUMENTATION.md) for details.
+
 ## API Endpoint
 
 ### POST /whatsapp/send

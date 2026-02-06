@@ -96,11 +96,17 @@ class MessageService {
   }
 
   mapVariables(payload, variableNames, brandConfig) {
+    // Calculate discount percentage if needed
+    const totalAmount = parseFloat(payload.total_amount || 0);
+    const discountAmount = parseFloat(payload.discount_amount || 0);
+    const discountPercentage = totalAmount > 0 ? Math.round((discountAmount / totalAmount) * 100) : 0;
+    
     const mapping = {
       customer_name: payload.customer_name,
       booking_number: payload.booking_number,
       total_amount: payload.total_amount,
-      discount_amount: payload.discount_amount,
+      discount_amount: payload.discount_amount || '0',
+      discount_percentage: String(discountPercentage), // Calculate percentage
       payable_amount: payload.payable_amount,
       invoice_amount: payload.invoice_amount,
       advance_paid: payload.advance_paid,

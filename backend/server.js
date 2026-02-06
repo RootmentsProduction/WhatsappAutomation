@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger.config');
 
 // Load environment variables
 dotenv.config();
@@ -12,6 +14,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Swagger Documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'WhatsApp Notification API Documentation'
+}));
 
 // MongoDB Connection
 const connectDB = async () => {
@@ -27,7 +35,25 @@ const connectDB = async () => {
 
 connectDB();
 
-// Basic route
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Health check endpoint
+ *     description: Returns API status and version information
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: API is running
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/HealthResponse'
+ *             example:
+ *               message: WhatsApp Notification Backend API
+ *               version: 1.0.0
+ *               status: running
+ */
 app.get('/', (req, res) => {
   res.json({ 
     message: 'WhatsApp Notification Backend API',
