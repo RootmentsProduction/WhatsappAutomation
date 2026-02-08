@@ -7,14 +7,14 @@ const router = express.Router();
 // Validation middleware
 const validateSendMessage = [
   body('brand').isIn(['suitorguy', 'zorucci']).withMessage('Invalid brand'),
-  body('event_type').isIn(['booking', 'rentout']).withMessage('Invalid event_type'),
-  body('template_type').isIn(['withdiscount', 'nodisc']).withMessage('Invalid template_type'),
-  body('customer_name').notEmpty().withMessage('customer_name is required'),
+  body('event_type').isIn(['booking', 'rentout', 'pdf_test']).withMessage('Invalid event_type'),
+  body('template_type').optional().isIn(['withdiscount', 'nodisc', 'default']).withMessage('Invalid template_type'),
+  body('customer_name').optional().notEmpty().withMessage('customer_name is required'),
   body('customer_phone').notEmpty().withMessage('customer_phone is required'),
   body('booking_number').notEmpty().withMessage('booking_number is required'),
-  body('total_amount').notEmpty().withMessage('total_amount is required'),
-  body('advance_paid').notEmpty().withMessage('advance_paid is required'),
-  body('balance_due').notEmpty().withMessage('balance_due is required')
+  body('total_amount').optional().notEmpty().withMessage('total_amount is required'),
+  body('advance_paid').optional().notEmpty().withMessage('advance_paid is required'),
+  body('balance_due').optional().notEmpty().withMessage('balance_due is required')
 ];
 
 /**

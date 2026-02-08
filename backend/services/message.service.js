@@ -43,13 +43,17 @@ class MessageService {
     // Map variables
     const variables = this.mapVariables(payload, template.variables, brandConfig);
 
+    // Check if template supports PDF in header
+    const pdfUrl = template.hasPdfHeader ? payload.pdf_url : null;
+
     try {
-      // Send WhatsApp message
+      // Send WhatsApp message (with PDF if template supports it)
       const result = await whatsappService.sendTemplateMessage(
         brand,
         template.name,
         customer_phone,
-        variables
+        variables,
+        pdfUrl
       );
 
       // Log to database if connected
