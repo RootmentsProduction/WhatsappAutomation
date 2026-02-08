@@ -64,6 +64,7 @@ app.get('/', (req, res) => {
 
 // API Routes
 app.use('/whatsapp', require('./routes/whatsapp.routes'));
+app.use('/pdf', require('./routes/pdf.routes'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {

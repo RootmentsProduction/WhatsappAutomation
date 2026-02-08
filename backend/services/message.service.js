@@ -69,6 +69,23 @@ class MessageService {
         console.log('MongoDB logging failed:', dbError.message);
       }
 
+      // Send PDF if provided
+      if (payload.pdf_url) {
+        try {
+          await whatsappService.sendDocument(
+            brand,
+            customer_phone,
+            payload.pdf_url,
+            `${event_type === 'booking' ? 'Booking' : 'Rent-out'} Invoice - ${booking_number}`,
+            `${booking_number}_invoice.pdf`
+          );
+          console.log('PDF sent successfully');
+        } catch (pdfError) {
+          console.error('Failed to send PDF:', pdfError.message);
+          // Don't fail the whole request if PDF fails
+        }
+      }
+
       return {
         success: true,
         messageId: result.messageId,
